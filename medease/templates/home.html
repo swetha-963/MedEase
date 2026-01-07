@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedEase - Your Trusted Health Partner</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/medlogo.png' %}" alt="MedEase logo">
+                </a>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="{% url 'medicine_list' %}" class="nav-link">Healthcare</a>
+                <a href="{% url 'doctor' %}" class="nav-link">Doctor Consult</a>
+                <!-- <a href="#" class="nav-link">Health Insights</a> -->
+                <a href="{% url 'lab_tests' %}" class="nav-link">Lab Tests</a>
+                <!-- <a href="#" class="nav-link">Offers</a> -->
+                <a href="{% url 'offers' %}" class="nav-link">Offers</a>
+            </nav>
+
+            <div class="nav-right">
+                <a href="{% url 'address' %}" class="nav-btn address-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                        </path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Address
+                </a>
+                <a href="{% url 'cart' %}" class="nav-btn cart-btn">
+                    <img src="{% static 'images/cart.png' %}" alt="Cart">
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="{% url 'login' %}" class="nav-btn login-btn">
+                    <img src="{% static 'images/person.png' %}" alt="Login">
+                    Login
+                </a>
+                <a href="{% url 'logout' %}" class="nav-btn logout-btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="floating-elements">
+                <div class="float-item float-1"></div>
+                <div class="float-item float-2"></div>
+                <div class="float-item float-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-icon">🏥</span>
+                <span>Trusted by 1M+ Customers</span>
+            </div>
+            <h1 class="hero-title">
+                Your Health, Our <span class="highlight">Priority</span>
+            </h1>
+            <p class="hero-subtitle">Discover quality medicines, expert consultations, and comprehensive health
+                solutions all in one place</p>
+
+            <!-- Enhanced Search Bar -->
+            <div class="search-container">
+                <form action="{% url 'medicine_list' %}" method="GET" class="search-form">
+                    <div class="search-icon-wrapper">
+                        <svg class="search-icon" width="22" height="22" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </div>
+                    <input type="text" name="q" placeholder="Search for medicines, lab tests, or health products..."
+                        class="search-input">
+                    <button type="submit" class="search-button">
+                        <span>Search</span>
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Products</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Doctors</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prescription Upload Section -->
+    <!-- <section class="prescription-section">
+        <div class="container">
+            <div class="prescription-card">
+                <div class="prescription-icon">
+                    <img src="{% static 'images/notes.png' %}" alt="Prescription">
+                </div>
+                <div class="prescription-content">
+                    <h4>Order with Prescription</h4>
+                    <p>Upload your prescription and get medicines delivered to your doorstep with expert verification
+                    </p>
+                </div>
+                <a href="#" class="prescription-btn">
+                    Upload Now
+
+                    <div class="container">
+                        <h1>Order Medicine with Prescription</h1>
+                        <form action="{% url 'address_upload' %}" method="get">
+                            <button type="submit">Upload Now</button>
+                        </form>
+                    </div>
+
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section> -->
+
+
+    <section class="prescription-section">
+        <div class="container">
+            <div class="prescription-card">
+
+                <div class="prescription-icon">
+                    <img src="{% static 'images/notes.png' %}" alt="Prescription">
+                </div>
+
+                <div class="prescription-content">
+                    <h4>Order with Prescription</h4>
+                    <p>
+                        Upload your prescription and get medicines delivered
+                        to your doorstep with expert verification
+                    </p>
+                </div>
+
+                <!-- Correct button -->
+                <a href="{% url 'address_upload' %}" class="prescription-btn">
+                    Upload Now
+                    <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M14 5l7 7m0 0l-7 7m7-7H3">
+                        </path>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">What We Offer</span>
+                <h2 class="section-title">Our Services</h2>
+                <p class="section-subtitle">Complete healthcare solutions at your fingertips</p>
+            </div>
+            <div class="services-grid">
+                <a href="{% url 'medicine_list' %}" class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="{% static 'images/healthcare.webp' %}" alt="Healthcare">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon-small">💊</div>
+                        <h3>Healthcare</h3>
+                        <p>Quality medicines delivered to your door</p>
+                        <span class="service-arrow">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="{% url 'doctor' %}" class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="{% static 'images/icon_doc_consult.webp' %}" alt="Doctor Consult">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon-small">👨‍⚕️</div>
+                        <h3>Doctor Consult</h3>
+                        <p>Consult with certified doctors online</p>
+                        <span class="service-arrow">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+                <a href="{% url 'lab_tests' %}" class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="{% static 'images/labtest.webp' %}" alt="Lab Tests">
+                        <div class="service-overlay"></div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon-small">🔬</div>
+                        <h3>Lab Tests</h3>
+                        <p>Book diagnostic tests at home</p>
+                        <span class="service-arrow">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+
+                <a href="{% url 'offers' %}" class="service-card">
+                    <div class="service-image-wrapper">
+                        <img src="{% static 'images/offers.webp' %}" alt="Offers">
+                        <div class="service-overlay"></div>
+                    </div>
+
+                    <div class="service-content">
+                        <div class="service-icon-small">🎁</div>
+                        <h3>Special Offers</h3>
+                        <p>Exclusive deals on health products</p>
+
+                        <span class="service-arrow">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3">
+                                </path>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Banner -->
+    <section class="banner-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Trending Now</span>
+                <h2 class="section-title">Featured Health Solutions</h2>
+            </div>
+        </div>
+        <div class="banner-container">
+            <div class="banner-track">
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/energy.webp' %}" alt="Energy Boost">
+                    <div class="banner-overlay">
+                        <span>Energy Boost</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/cancercare.webp' %}" alt="Cancer Care">
+                    <div class="banner-overlay">
+                        <span>Cancer Care</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/dctrs.webp' %}" alt="Doctors">
+                    <div class="banner-overlay">
+                        <span>Expert Doctors</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/masks.webp' %}" alt="Safety">
+                    <div class="banner-overlay">
+                        <span>Safety First</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/flashsale.webp' %}" alt="Flash Sale">
+                    <div class="banner-overlay">
+                        <span>Flash Sale</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/naturalglow.webp' %}" alt="Natural Glow">
+                    <div class="banner-overlay">
+                        <span>Natural Glow</span>
+                    </div>
+                </a>
+                <!-- Duplicate for seamless loop -->
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/energy.webp' %}" alt="Energy Boost">
+                    <div class="banner-overlay">
+                        <span>Energy Boost</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/cancercare.webp' %}" alt="Cancer Care">
+                    <div class="banner-overlay">
+                        <span>Cancer Care</span>
+                    </div>
+                </a>
+                <a href="#" class="banner-item">
+                    <img src="{% static 'images/dctrs.webp' %}" alt="Doctors">
+                    <div class="banner-overlay">
+                        <span>Expert Doctors</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Why MedEase</span>
+                <h2 class="section-title">Why Choose Us</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4>100% Authentic</h4>
+                    <p>All products sourced from verified suppliers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h4>Fast Delivery</h4>
+                    <p>Get your orders delivered within 24 hours</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4>Best Prices</h4>
+                    <p>Competitive pricing on all products</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Round-the-clock customer assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="{% static 'images/medlogo.png' %}" alt="MedEase">
+                    <p>Your trusted partner for all healthcare needs. Quality medicines and expert care delivered to
+                        your doorstep.</p>
+                </div>
+                <div class="footer-links">
+                    <h5>Quick Links</h5>
+                    <a href="{% url 'medicine_list' %}">Healthcare</a>
+                    <a href="{% url 'doctor' %}">Doctor Consult</a>
+                    <a href="{% url 'lab_tests' %}">Lab Tests</a>
+                </div>
+                <div class="footer-links">
+                    <h5>Support</h5>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQs</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 MedEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lab_test.name }} - MedEase</title>
+    <link rel="stylesheet" href="{% static 'css/lab_test.css' %}">
+</head>
+<body>
+    <h2>{{ lab_test.name }}</h2>
+
+    <div class="lab-detail">
+        <h3>Overview</h3>
+        <p>{{ lab_test.overview }}</p>
+
+        <h3>Description</h3>
+        <p>{{ lab_test.description }}</p>
+
+        <h3>Test Result Interpretation</h3>
+        <p>{{ lab_test.result_interpretation }}</p>
+
+        <h3>Price/Cost</h3>
+        <p>₹{{ lab_test.price }}</p>
+
+        <form action="{% url 'add_lab_to_cart' lab_test.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ lab_test.name }} - MedEase</title>
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+</head>
+<body>
+    <h2>{{ lab_test.name }}</h2>
+
+    <div class="lab-detail">
+        <h3>Overview</h3>
+        <p>{{ lab_test.overview }}</p>
+
+        <h3>Description</h3>
+        <p>{{ lab_test.description }}</p>
+
+        <h3>Test Result Interpretation</h3>
+        <p>{{ lab_test.result_interpretation }}</p>
+
+        <h3>Price/Cost</h3>
+        <p>₹{{ lab_test.price }}</p>
+
+        <form action="{% url 'add_lab_to_cart' lab_test.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Book Now</button>
+        </form>
+    </div>
+</body>
+</html>

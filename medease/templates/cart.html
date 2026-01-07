@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - MedEase</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+
+<body>
+    <h2>Your Cart</h2>
+    <div class="cart-items">
+        {% if cart_items %}
+        <form method="POST">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <th>Medicine</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                {% for row in cart_items %}
+                <tr>
+                    <td>{{ row.item.medicine.name }}</td>
+                    <td>₹{{ row.item.medicine.price }}</td>
+                    <td>
+                        <input type="number" name="quantity_{{ row.item.id }}" value="{{ row.item.quantity }}" min="0">
+                        <small>Set 0 to remove</small>
+                    </td>
+                    <td>₹{{ row.row_total }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <p><strong>Total Amount: ₹{{ total }}</strong></p>
+            <button type="submit">Update Cart</button>
+        </form>
+
+        <a href="{% url 'address' %}"><button>Proceed to Checkout</button></a>
+        {% else %}
+        <p>Your cart is empty.</p>
+        {% endif %}
+    </div>
+</body>
+
+</html>

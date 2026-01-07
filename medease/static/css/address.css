@@ -1,0 +1,84 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Page Background */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f4f7;
+}
+
+
+
+/* Form Card */
+form {
+    background: #ffffff;
+    padding: 40px 35px;
+    width: 380px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title */
+form h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Labels */
+form label {
+    font-size: 14px;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+/* Inputs */
+form input[type="text"],
+form input[type="number"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+/* Input Hover + Focus Effects */
+form input:focus {
+    border-color: #0077ff;
+    box-shadow: 0 0 5px rgba(0, 119, 255, 0.4);
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    margin-top: 20px;
+    padding: 12px;
+    background: #0077ff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Button Hover */
+form input[type="submit"]:hover {
+    background: #0059c9;
+    transform: translateY(-2px);
+}
+
+/* Remove underline from link wrapping input */
+form a {
+    text-decoration: none;
+}

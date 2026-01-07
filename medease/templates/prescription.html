@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/prescription.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add Address & Upload Documents</h2>
+
+        <!-- Add Address -->
+        <button>Add Address</button>
+
+        <!-- Upload Prescription -->
+        <div class="upload-section">
+            <input type="file" accept="image/*">
+            <img src="{% static 'images/camera.png' %}" alt="camera">
+        </div>
+
+        <!-- Upload Document -->
+        <!-- <div class="upload-section">
+            <input type="file" accept=".pdf,.doc,.docx">
+            <img src="{% static 'images/document.png' %}" alt="document">
+        </div>
+    </div> -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Tests - MedEase</title>
+    <link rel="stylesheet" href="{% static 'css/lab.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'images/medlogo.png' %}" alt="MedEase logo">
+                </a>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="{% url 'medicine_list' %}" class="nav-link">Healthcare</a>
+                <a href="#" class="nav-link">Doctor Consult</a>
+                <a href="#" class="nav-link">Health Insights</a>
+                <a href="{% url 'lab_tests' %}" class="nav-link active">Lab Tests</a>
+                <a href="#" class="nav-link">Offers</a>
+            </nav>
+
+            <div class="nav-right">
+                <a href="{% url 'address' %}" class="nav-btn address-btn">
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    Address
+                </a>
+                <a href="{% url 'cart' %}" class="nav-btn cart-btn">
+                    <img src="{% static 'images/cart.png' %}" alt="Cart">
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="{% url 'login' %}" class="nav-btn login-btn">
+                    <img src="{% static 'images/person.png' %}" alt="Login">
+                    Login
+                </a>
+                <a href="{% url 'logout' %}" class="nav-btn logout-btn">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Lab Tests & Diagnostics</h1>
+            <p class="hero-subtitle">Book comprehensive health tests from certified labs. Get accurate results delivered to your doorstep.</p>
+        </div>
+    </section>
+
+    <!-- Lab Tests Section -->
+    <section class="tests-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Available Lab Tests</h2>
+                <p class="section-description">Choose from our wide range of diagnostic tests and health checkups</p>
+            </div>
+
+            <div class="tests-grid">
+                {% for test in lab_tests %}
+                <div class="test-card">
+                    <div class="test-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div class="test-content">
+                        <h3 class="test-name">{{ test.name }}</h3>
+                        {% if test.description %}
+                        <p class="test-description">{{ test.description|truncatewords:15 }}</p>
+                        {% else %}
+                        <p class="test-description">Comprehensive diagnostic test for accurate health insights</p>
+                        {% endif %}
+                        <div class="test-price">
+                            <span class="price-amount">₹{{ test.price }}</span>
+                        </div>
+                    </div>
+                    <a href="{% url 'lab_test_detail' test.id %}" class="test-button">
+                        Book Now
+                        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                        </svg>
+                    </a>
+                </div>
+                {% empty %}
+                <div class="empty-state">
+                    <svg width="64" height="64" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h3>No Lab Tests Available</h3>
+                    <p>Check back later for available tests</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4>Quick Results</h4>
+                    <p>Get test results within 24-48 hours delivered digitally</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h4>Certified Labs</h4>
+                    <p>All tests conducted by NABL certified laboratories</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">
+                        <svg width="32" height="32" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                    </div>
+                    <h4>Home Collection</h4>
+                    <p>Sample collection at your doorstep for your convenience</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>

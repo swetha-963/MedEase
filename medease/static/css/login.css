@@ -1,0 +1,97 @@
+/* Whole page background */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container */
+.log {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Login box */
+.log-box {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 40px 35px;
+    width: 360px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+/* Heading */
+.log-box h2 {
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Sub heading */
+.log-box p {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #e8e8e8;
+}
+
+/* Labels */
+label {
+    display: block;
+    text-align: left;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.85);
+    font-size: 14px;
+}
+
+/* Button */
+input[type="button"],
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background: #f1f1f1;
+}
+
+/* Register link */
+.register-link {
+    margin-top: 15px;
+    color: #fff;
+}
+
+.register-link a {
+    color: #ffe7a3;
+    text-decoration: underline;
+}

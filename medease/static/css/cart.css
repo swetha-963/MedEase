@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f2f2f2;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f4f4f4;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    text-align: right;
+    font-weight: bold;
+}

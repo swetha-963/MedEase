@@ -1,0 +1,65 @@
+/* lab.css - Lab Test Detail Page */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f8f8f8;
+}
+
+h2 {
+    text-align: center;
+    color: #2a7ae2;
+    margin-bottom: 20px;
+}
+
+.lab-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lab-detail h3 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.lab-detail p {
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.lab-detail form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.lab-detail button {
+    background-color: #2a7ae2;
+    color: #fff;
+    padding: 12px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.lab-detail button:hover {
+    background-color: #1d5bbf;
+}
+
+@media screen and (max-width: 768px) {
+    .lab-detail {
+        padding: 15px;
+    }
+
+    .lab-detail button {
+        width: 100%;
+        font-size: 18px;
+    }
+}
